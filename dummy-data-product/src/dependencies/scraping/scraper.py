@@ -11,7 +11,7 @@ load_dotenv()
 
 class Scraper:
     def __init__(self):
-        self.driver_path = '/home/sagar/Downloads/project/pt-mesh-pipeline/build/chromedriver'
+        self.driver_path = '/home/sagar/Downloads/project/pt-mesh-pipeline/build/chromedriver'  # change chromedriver path according to you
         self.headless = os.environ.get('headless', 'false').lower() == 'true'
         self.inprivate = os.environ.get('private', 'false').lower() == 'true'
         self.output_name = os.environ.get('output_csv')
