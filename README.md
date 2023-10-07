@@ -1,6 +1,6 @@
 ## How to use
 
-In the 'src' directory, there is a file named config.json with the following properties:  
+In the 'src' directory, there is a file named .env with the following properties:  
 
 headless  - If 'true' the selenium browser will open in headless mode otherwise it will open in non-headless mode. (recommended value: true)  
 
