@@ -2,7 +2,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
 from tqdm import tqdm
 import json
 import os
@@ -32,7 +31,7 @@ class Scraper:
     
     def __dir_maker(self):
         try:
-            os.mkdir('../data')
+            os.mkdir('../../data')
         except FileExistsError:
             pass
     
@@ -40,7 +39,7 @@ class Scraper:
         try:
             if self.output_name.endswith('.csv'):
                 try:
-                    os.remove('../data/' + self.output_name)
+                    os.remove('../../data/' + self.output_name)
                 except FileNotFoundError:
                     pass
                 finally:
