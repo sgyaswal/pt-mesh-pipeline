@@ -1,11 +1,12 @@
 import pandas as pd
-import json
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class Standardization:
     def __init__(self):
-        with open('./config.json') as file:
-            data = json.load(file)
-        self.output_name = data['output_csv']
+        self.output_name = os.environ.get('output_csv')
         self.df = pd.read_csv('../../data/' + self.output_name, encoding='utf-16', delimiter='\t')
     
     def snake_case(self):

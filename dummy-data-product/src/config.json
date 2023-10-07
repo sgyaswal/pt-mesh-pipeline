@@ -1,7 +1,0 @@
-{
-  "headless": true,
-  "private": true,
-  "output_csv": "final_data.csv",
-  "start_ind": 0,
-  "end_ind": 2
-}

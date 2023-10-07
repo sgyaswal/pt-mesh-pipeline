@@ -3,20 +3,20 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from tqdm import tqdm
-import json
 import os
+from dotenv import load_dotenv
 import pandas as pd
+
+load_dotenv()
 
 class Scraper:
     def __init__(self):
-        with open('./config.json') as file:
-            data = json.load(file)
         self.driver_path = '/home/sagar/Downloads/project/pt-mesh-pipeline/build/chromedriver'
-        self.headless = data['headless']
-        self.inprivate = data['private']
-        self.output_name = data['output_csv']
-        self.start_ind = data['start_ind']
-        self.end_ind = data['end_ind']
+        self.headless = os.environ.get('headless', 'false').lower() == 'true'
+        self.inprivate = os.environ.get('private', 'false').lower() == 'true'
+        self.output_name = os.environ.get('output_csv')
+        self.start_ind = int(os.environ.get('start_ind'))
+        self.end_ind = int(os.environ.get('end_ind'))
         self.clearFlag = False
         
     

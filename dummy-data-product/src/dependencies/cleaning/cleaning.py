@@ -1,12 +1,11 @@
 import pandas as pd
-import json
+import os
+from dotenv import load_dotenv
 
 class Cleaning:
     def __init__(self):
-        # reading and loading data from config.json
-        with open('./config.json') as file:
-            data = json.load(file)
-        self.output_name = data['output_csv']
+        # reading and loading data from .env file
+        self.output_name = os.environ.get('output_csv')
         self.df = None
         
         # reading the data csv file
@@ -15,8 +14,6 @@ class Cleaning:
     def __fill_null(self,value='NA'):
         self.df.fillna(value)
     
-    def __replace_substr(self,column,val,replace_with=""):
-        self.df[column] = [i.replace(val,replace_with) if isinstance(i, str) else i for i in self.df[column]]
         
     def __datetime(self,column):
         self.df[column] = pd.to_datetime(self.df[column], errors='coerce')
